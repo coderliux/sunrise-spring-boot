@@ -59,11 +59,11 @@ public class FrontLogController {
 				currFile = new File(frontLogConfig.getLogFolder() + "/" + fileName);
 				currFile.createNewFile();
 			} else {
-				if (FileUtils.sizeOf(folder) > frontLogConfig.getFolderMaxSize()) {
+				if (FileUtils.sizeOfDirectory(folder) > frontLogConfig.getFolderMaxSize()) {
 					FileUtils.forceDelete(fileList.get(fileList.size() - 1));
 				}
 				currFile = fileList.get(0);
-				if (FileUtils.sizeOf(currFile) > frontLogConfig.getFileMaxSize()) {
+				if (FileUtils.sizeOfDirectory(currFile) > frontLogConfig.getFileMaxSize()) {
 					String[] tmp = currFile.getName().split("\\.");
 					int num = Integer.parseInt(tmp[1]) + 1;
 					String fileName = frontLogConfig.getFileName() + "." + num + ".log";
@@ -78,7 +78,7 @@ public class FrontLogController {
 			StringBuffer msgBuffer = new StringBuffer();
 			msgBuffer.append("\n");
 			msgBuffer.append(frontLogFormBean.toString());
-			FileUtils.writeByteArrayToFile(currFile, msgBuffer.toString().getBytes(), true);
+			FileUtils.writeByteArrayToFile(currFile, msgBuffer.toString().getBytes());
 		} catch (Exception e) {
 			log.error("[FrontLog]记录失败," + e.getMessage());
 		}

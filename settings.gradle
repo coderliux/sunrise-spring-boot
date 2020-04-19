@@ -1,0 +1,8 @@
+rootProject.name = 'sunrise-spring-boot'
+include 'spring-boot-sunrise-console'
+include 'spring-boot-sunrise-core'
+
+project(':spring-boot-sunrise-console').projectDir = "$rootDir/spring-boot-sunrise-console" as File
+project(':spring-boot-sunrise-core').projectDir = "$rootDir/spring-boot-sunrise-core" as File
+
+

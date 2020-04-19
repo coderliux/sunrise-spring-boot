@@ -146,7 +146,7 @@ public class FileService extends BaseService {
 				Files.createDirectories(fileFolder);
 			}
 			if (fileFinal.createNewFile()) {
-				FileUtils.copyInputStreamToFile(file.getInputStream(), fileFinal);
+				file.transferTo(fileFinal);
 				SysFile sysFile = new SysFile();
 				sysFile.setFileName(fileName);
 				sysFile.setFileStat(FILE_STAT_PRIVATE);
