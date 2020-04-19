@@ -1,0 +1,9 @@
+description = 'spring-boot-sunrise-console'
+archivesBaseName = 'spring-boot-sunrise-console'
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
+    implementation "org.springframework:spring-tx:${springframeworkVersion}"
+    implementation 'org.postgresql:postgresql:9.4.1212.jre7'
+
+}
